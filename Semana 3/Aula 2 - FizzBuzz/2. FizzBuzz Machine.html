@@ -56,50 +56,46 @@
         </script>
 
     <script>
+        //Function that gets called when you press the start button
         function submitFunction() {
             event.preventDefault()
 
             let loops = document.getElementById("inputNumber").value;
-            loops++;
-            
-            fizzBuzz(loops);
+
+            fizzBuzz(loops);    
         }
 
-        function fizzBuzz(zeCarlos) {
+        //Function that finds if the number is divisible by 3, 5, or both
+        function fizzBuzz(loops) {
             let i = 0;
 
-            while (i < zeCarlos) {
+            while (i <= loops) {
                 if (i % 3 == 0 && i % 5 == 0) {
-                    console.log(i + " is FizzBuzz");
-                    const para = document.createElement("p");
-                    para.classList.add("col-2");
-                    para.classList.add("border");
-                    para.classList.add("border-primary");
-                    para.classList.add("rounded");
-                    para.innerHTML = i + " is FizzBuzz"
-                    document.getElementById("fizzBuzzDiv").appendChild(para)
+                    text = i + " is FizzBuzz";
+                    createElement(text);
                 } else if (i % 3 == 0) {
-                    console.log(i + " is Fizz");
-                    const para = document.createElement("p");
-                    para.classList.add("col-2");
-                    para.classList.add("border");
-                    para.classList.add("border-primary");
-                    para.classList.add("rounded");
-                    para.innerHTML = i + " is Buzz"
-                    document.getElementById("fizzBuzzDiv").appendChild(para)
+                    text = i + " is Fizz";
+                    createElement(text);
                 } else if (i % 5 == 0) {
-                    console.log(i + " is Buzz");
-                    const para = document.createElement("p");
-                    para.classList.add("col-2");
-                    para.classList.add("border");
-                    para.classList.add("border-primary");
-                    para.classList.add("rounded");
-                    para.innerHTML = i + " is Buzz"
-                    document.getElementById("fizzBuzzDiv").appendChild(para)
+                    text = i + " is Buzz";
+                    createElement(text);
                 }
 
                 i++;
             }
+        }
+
+        //Function the creates a FizzBuzz element and adds it to the dom
+        function createElement(text) {
+            const para = document.createElement("p");
+            para.classList.add("col-12");
+            para.classList.add("col-sm-6")
+            para.classList.add("col-md-2")
+            para.classList.add("border");   
+            para.classList.add("border-primary");
+            para.classList.add("rounded");
+            para.innerHTML = text;
+            document.getElementById("fizzBuzzDiv").appendChild(para)
         }
     </script>
 </body>
