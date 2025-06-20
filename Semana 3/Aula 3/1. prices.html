@@ -61,7 +61,7 @@
             })
 
             console.log(totalPrice);
-            
+                
             const newSum = entry.products.reduce((accumulator, product) => {
                 return accumulator + product.preco * ((product.iva / 100) + 1)
             }, 0);
