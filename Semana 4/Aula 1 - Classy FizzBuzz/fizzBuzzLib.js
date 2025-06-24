@@ -1,14 +1,7 @@
 //Function the creates a FizzBuzz element and adds it to the dom
 function createElement(text) {
-    const para = document.createElement("p");
-    para.classList.add("col-12");
-    para.classList.add("col-sm-6")
-    para.classList.add("col-md-2")
-    para.classList.add("border");
-    para.classList.add("border-primary");
-    para.classList.add("rounded");
-    para.innerHTML = text;
-    document.getElementById("fizzBuzzDiv").appendChild(para)
+    const paragraph = `<p class="col-12 col-sm-6 col-md-2 border border-primary rounded">${text}</p>`;
+    document.getElementById("fizzBuzzDiv").insertAdjacentHTML('beforeend', paragraph);
 }
 
 class FizzBuzz {
@@ -20,19 +13,14 @@ class FizzBuzz {
      */
     start(loops) {
         let i = 0;
-        let text = "";
         while (i <= loops) {
             if (i % 3 == 0 && i % 5 == 0) {
-                text = i + " is FizzBuzz";
-                createElement(text);
+                createElement(i + " is FizzBuzz");
             } else if (i % 3 == 0) {
-                text = i + " is Fizz";
-                createElement(text);
+                createElement(i + " is Fizz");
             } else if (i % 5 == 0) {
-                text = i + " is Buzz";
-                createElement(text);
+                createElement(i + " is Buzz")
             }
-
             i++;
         }
     }
