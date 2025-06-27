@@ -7,31 +7,39 @@ function helperArrayToHTMLElements(a, tagName) {
   return elements;
 }
 class MyTable {
-  initTable(tableId, hnames) {
+  constructor(tableId){
+    this.tableId = tableId;
+  }
+
+  initTable(hnames) {
     let headElements = helperArrayToHTMLElements(hnames, 'th');
-    document.getElementById(tableId).innerHTML = `
-  <table class="table">
+    document.getElementById(this.tableId).innerHTML = `
+  <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">#</th>
         ${headElements}
       </tr>
     </thead>
-    <tbody id="${tableId}_body">
+    <tbody id="${this.tableId}_body">
     </tbody>
   </table>`
   }
 
-  /**
+  /** 
    * @param {string} tableBodyId test tableBodyId
    * @param {array} a teste a
   */
-  addArrayToTableRow(tableBodyId, a, index = -1) {
+  addArrayToTableRow(a) {
+    const tableBodyId = this.tableId + "_body";
     document.getElementById(tableBodyId).insertAdjacentHTML('beforeend', `
       <tr>
-        <th scope="row">${(index >= 0)? index : document.getElementById(tableBodyId).rows.length + 1}</th>
         ${helperArrayToHTMLElements(a, 'td')}
       </tr>`)
 
+  }
+
+  cleanTableBody(){
+    const tableBodyId = this.tableId + "_body";
+    document.getElementById(tableBodyId).innerHTML = "";
   }
 }

@@ -30,6 +30,7 @@ const productNameSanduichesList = [
 ]
 
 const productExtraSanduichesList = [
+    "Regula Shmegula",
     "Sem Molhos",
     "Sem Ketchup",
     "Sem Pickle"
@@ -51,6 +52,7 @@ const productNameBebidasList = [
 ]
 
 const productExtraBebidasList = [
+    "Regula Shmegula",
     "Sem Gelo",
     "Natural"
 ]
