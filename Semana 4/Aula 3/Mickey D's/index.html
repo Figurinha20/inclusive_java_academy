@@ -199,7 +199,7 @@
                         <p class="font-weight-light">${product.extra}</p>
                         `
                 }),
-                    ordersTable.addArrayToTableRow([order.requesterName, productsString, (order.ready ? "Pronta" : "Por Fazer")]);
+                ordersTable.addArrayToTableRow([order.requesterName, productsString, (order.ready ? "Pronta" : "Por Fazer")]);
                 productsString = "";
             });
         }
